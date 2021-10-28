@@ -1,0 +1,50 @@
+#include <CapacitiveSensor.h>
+
+CapacitiveSensor a = CapacitiveSensor(12,3);
+CapacitiveSensor b = CapacitiveSensor(12,4);
+CapacitiveSensor c = CapacitiveSensor(12,5);
+CapacitiveSensor d = CapacitiveSensor(12,6);
+CapacitiveSensor e = CapacitiveSensor(12,7);
+
+int buzzer =11;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop(){
+  long SEN1 = a.capacitiveSensorRaw(30);
+  long SEN2 = b.capacitiveSensorRaw(30);
+  long SEN3 = c.capacitiveSensorRaw(30);
+  long SEN4 = d.capacitiveSensorRaw(30);
+  long SEN5 = e.capacitiveSensorRaw(30);
+
+
+Serial.println(SEN1);
+delay(15);
+
+
+if (SEN1 > 10)
+{
+  tone(11, 262, 100);
+}
+if (SEN2 > 10)
+{
+  tone(11, 294, 100);
+}
+if (SEN3 > 10)
+{
+  tone(11, 330, 100);
+}
+if (SEN4 > 10)
+{
+  tone(11, 349, 100);
+}
+if (SEN5 > 10)
+{
+  tone(11, 392, 100);
+}
+
+
+}
